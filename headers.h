@@ -12,3 +12,4 @@
 #define CAT "mycat"
 #define HEAD "myhead"
 #define UNIQ "myuniq"
+#define CATSIZE 2
