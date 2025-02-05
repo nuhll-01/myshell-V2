@@ -1,5 +1,8 @@
 #include "headers.h"
 
+/*
+* count the total number of lines
+*/
 int count(FILE* file_pointer) { 
     char line[MAX];
     int numberOfLines = 0;
@@ -9,6 +12,9 @@ int count(FILE* file_pointer) {
     return numberOfLines;
 }
 
+/*
+* display the first three lines of the text file
+*/
 void printHead(FILE* file_pointer) { 
     char line[MAX];
     for (int i = 0; i < 3; i++) { 
@@ -17,6 +23,9 @@ void printHead(FILE* file_pointer) {
     }
 }
 
+/*
+* display the "entire" text file
+*/
 void print(FILE* file_pointer) { 
     char line[MAX];
     while (fgets(line, sizeof(line), file_pointer)) { 
@@ -24,11 +33,18 @@ void print(FILE* file_pointer) {
     }
 }
 
+/*
+* set the cursor back to the beginning
+*/
 void file_rewind(FILE* file_pointer) { 
     fseek(file_pointer, 0, SEEK_END);
     rewind(file_pointer);
 }
 
+
+/*
+* the main function
+*/
 int main(int argc, char *argv[]) {
     int numberOfLines = 0;
     const char* filename = argv[1];
@@ -39,10 +55,8 @@ int main(int argc, char *argv[]) {
         return -1;
     }
 
-    // determine the number of lines
     numberOfLines = count(fp);
 
-    // rewind the buffer
     file_rewind(fp);
 
     if (numberOfLines > 3) {
@@ -52,6 +66,6 @@ int main(int argc, char *argv[]) {
     }
 
     fclose(fp);
-    
+
     return 0;
 }
