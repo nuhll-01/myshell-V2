@@ -1,6 +1,6 @@
 #include "headers.h"
 
-void printLine(FILE* file_pointer) { 
+void print(FILE* file_pointer) { 
     char line[MAX];
     while (fgets(line, sizeof(line), file_pointer)) { 
         printf("%s", line);
@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
         }
 
         // printing line-by-line
-        printLine(fp);
+        print(fp);
 
         fclose(fp);
     }
@@ -36,8 +36,8 @@ int main(int argc, char *argv[]) {
             return -1;
         }
 
-        printLine(fp1);
-        printLine(fp2);
+        print(fp1);
+        print(fp2);
 
         fclose(fp1);
         fclose(fp2);
