@@ -72,12 +72,18 @@ int main(int argc, char *argv[]) {
         } else if (strcmp(token, HEAD) == 0) { 
             // todo
             snprintf(program, sizeof(program), "./%s", token);
+            token = strtok(NULL, " ");
+            snprintf(file1, sizeof(file1), "%s", token);
+
             pid = fork();
+            
             if (pid == 0) { 
-                char *args[] = {program, NULL};
+                char *args[] = {program, file1, NULL};
                 execvp(args[0], args);
             }
+
             waitpid(pid, NULL, 0);
+
         } else if (strcmp(token, UNIQ) == 0) { 
             // todo
             snprintf(program, sizeof(program), "./%s", token);
