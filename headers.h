@@ -13,3 +13,4 @@
 #define HEAD "myhead"
 #define UNIQ "myuniq"
 #define CATSIZE 2
+#define MAX 1024
