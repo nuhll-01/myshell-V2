@@ -1,5 +1,8 @@
 #include "headers.h"
 
+/*
+ * initialize an array
+ */
 char **createArray(int size) {
     char **ptr = calloc(size, sizeof(int));
     if (ptr == NULL) {
@@ -9,6 +12,9 @@ char **createArray(int size) {
     return ptr;
 }
 
+/*
+* the main function
+*/
 int main(int argc, char *argv[]) { 
     char input[30];
     char program[30];
@@ -76,7 +82,7 @@ int main(int argc, char *argv[]) {
             snprintf(file1, sizeof(file1), "%s", token);
 
             pid = fork();
-            
+
             if (pid == 0) { 
                 char *args[] = {program, file1, NULL};
                 execvp(args[0], args);
