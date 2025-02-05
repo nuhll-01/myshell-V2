@@ -1,5 +1,8 @@
 #include "headers.h"
 
+/*
+* print the buffer
+*/
 void print(FILE* file_pointer) { 
     char line[MAX];
     while (fgets(line, sizeof(line), file_pointer)) { 
@@ -7,6 +10,9 @@ void print(FILE* file_pointer) {
     }
 }
 
+/*
+* the main function
+*/
 int main(int argc, char *argv[]) { 
     // todo
     if (argc == 2) { 
@@ -18,7 +24,6 @@ int main(int argc, char *argv[]) {
             return -1;
         }
 
-        // printing line-by-line
         print(fp);
 
         fclose(fp);
