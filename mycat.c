@@ -1,18 +1,25 @@
 #include "headers.h"
 
-/*
-* print the buffer
-*/
+/**
+ *  @brief prints each individual line of the file
+ *  
+ *  @param file_pointer pointer to target file
+ *
+ */
 void print(FILE* file_pointer) { 
     char line[MAX];
-    while (fgets(line, sizeof(line), file_pointer)) { 
-        printf("%s", line);
-    }
+    while (fgets(line, sizeof(line), file_pointer)) { printf("%s", line); }
 }
 
-/*
-* the main function
-*/
+/**
+ *  @brief The cat-command driver function.
+ *  
+ *  @param argc total number of command-line arguments.
+ *  @param argv array containing the command-line arguments.
+ * 
+ *  @returns 0 upon successful execution, -1 if unsucessful.
+ * 
+ */
 int main(int argc, char *argv[]) { 
     // todo
     if (argc == 2) { 
@@ -25,7 +32,6 @@ int main(int argc, char *argv[]) {
         }
 
         print(fp);
-
         fclose(fp);
     }
 
