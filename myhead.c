@@ -6,9 +6,7 @@
 int count(FILE* file_pointer) { 
     char line[MAX];
     int numberOfLines = 0;
-    while (fgets(line, sizeof(line), file_pointer)) {
-        numberOfLines++;
-    }
+    while (fgets(line, sizeof(line), file_pointer)) { numberOfLines++; }
     return numberOfLines;
 }
 
@@ -28,9 +26,7 @@ void printHead(FILE* file_pointer) {
 */
 void print(FILE* file_pointer) { 
     char line[MAX];
-    while (fgets(line, sizeof(line), file_pointer)) { 
-        printf("%s", line);
-    }
+    while (fgets(line, sizeof(line), file_pointer)) { printf("%s", line); }
 }
 
 /*
@@ -41,10 +37,15 @@ void file_rewind(FILE* file_pointer) {
     rewind(file_pointer);
 }
 
-
-/*
-* the main function
-*/
+/**
+ *  @brief The head-command driver function.
+ *  
+ *  @param argc total number of command-line arguments.
+ *  @param argv array containing the command-line arguments.
+ * 
+ *  @returns 0 upon successful execution, -1 if unsucessful.
+ * 
+ */
 int main(int argc, char *argv[]) {
     int numberOfLines = 0;
     const char* filename = argv[1];
@@ -59,11 +60,7 @@ int main(int argc, char *argv[]) {
 
     file_rewind(fp);
 
-    if (numberOfLines > 3) {
-        printHead(fp);
-    } else {
-        print(fp);
-    }
+    if (numberOfLines > 3) { printHead(fp); } else { print(fp); }
 
     fclose(fp);
 
